@@ -26,4 +26,5 @@ jobs:
         platforms: ${{ matrix.platform }}
     - 
       name: Build Setup
-      run: ./build_workflow.sh ${{ matrix.platform }}
+      run: |
+        /bin/bash build_workflow.sh ${{ matrix.platform }}
