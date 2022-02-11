@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     strategy: 
       matrix:
         platforms: 
@@ -20,6 +20,8 @@ jobs:
     -
       name: Install dependencies
       run: |
+        deb https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu bionic main 
+        deb-src https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu bionic main 
         sudo dpkg --add-architecture armhf
         sudo dpkg --add-architecture arm64
         sudo apt update
