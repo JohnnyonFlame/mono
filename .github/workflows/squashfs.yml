@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: debian-bullseye
+    runs-on: ubuntu-18.04
     strategy: 
       matrix:
         platforms: 
