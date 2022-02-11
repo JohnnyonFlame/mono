@@ -26,7 +26,7 @@ export CC="${TRIPLET}-gcc"
 export CXX="${TRIPLET}-g++"
 
 # Configure
-./autogen.sh --host=${TRIPLET} --target=${TRIPLET} --prefix="$(pwd)/built" --with-tls=__thread --with-profile4_x=yes --with-runtime-preset=net_4_x,aot --with-csc=mcs --enable-mcs-build --enable-system-aot CFLAGS="${FLAGS}" CXXFLAGS="${FLAGS}" CCFLAGS="${FLAGS}" CC="${TRIPLET}-gcc" CXX="${TRIPLET}-g++"
+./autogen.sh --host=${TRIPLET} --target=${TRIPLET} --build=${TRIPLET} --prefix="$(pwd)/built" --with-tls=__thread --with-profile4_x=yes --with-runtime-preset=net_4_x,aot --with-csc=mcs --enable-mcs-build --enable-system-aot CFLAGS="${FLAGS}" CXXFLAGS="${FLAGS}" CCFLAGS="${FLAGS}" CC="${TRIPLET}-gcc" CXX="${TRIPLET}-g++"
 
 # Make && Make Install
 make -j$((`nproc`+1))
