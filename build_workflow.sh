@@ -26,7 +26,7 @@ fi
 sudo apt-get install git autoconf libtool automake build-essential gettext cmake python3 curl squashfs-tools
 
 # Configure
-./autogen.sh --prefix=$(pwd)/built --with-csc=mcs --with-mcs-build --enable-system-aot CFLAGS=$FLAGS CXXFLAGS=$FLAGS CCFLAGS=$FLAGS CC=$TRIPLETgcc CXX=$TRIPLETg++
+./autogen.sh --prefix="$(pwd)/built" --with-csc=mcs --with-mcs-build --enable-system-aot CFLAGS="$FLAGS" CXXFLAGS="$FLAGS" CCFLAGS="$FLAGS" CC=$TRIPLETgcc CXX=$TRIPLETg++
 
 # Make && Make Install
 make -j$((`nproc`+1))
