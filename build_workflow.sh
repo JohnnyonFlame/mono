@@ -11,7 +11,7 @@ if [[ x$ARG_PLATFORM == x"linux/arm/v7" ]]; then
   FLAGS="-mcpu=cortex-a35 -mtune=cortex-a35 -mfpu=vfpv4"
   SQUASH_NAME=mono-${VERSION}-armhf.squashfs
 elif [[ x$ARG_PLATFORM == x"linux/arm64" ]]; then
-  CROSSESSENTIALS=crossbuild-essential-aarch64
+  CROSSESSENTIALS=crossbuild-essential-arm64
   TRIPLET=aarch64-linux-gnu-
   # CMAKE_TOOLCHAIN_FILE=aarch64.cmake
   FLAGS="-mcpu=cortex-a35 -mtune=cortex-a35 -mfpu=vfpv4"
@@ -22,7 +22,7 @@ else
 fi
 
 # Install deps and check binfmt
-sudo apt-get install git autoconf libtool automake build-essential gettext cmake python3 curl squashfs-tools qemu binfmt-support qemu-user-static
+sudo apt-get install git autoconf libtool automake build-essential gettext cmake python3 curl squashfs-tools qemu binfmt-support qemu-user-static mono-complete
 update-binfmts --display
 
 # Configure
