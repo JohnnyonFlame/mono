@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-ARG_PLATFORM=$0
+ARG_PLATFORM=$1
 shift
 echo Building for $ARG_PLATFORM...
 
@@ -14,7 +14,7 @@ elif [[ x$ARG_PLATFORM == "xlinux/arm64" ]]; then
   FLAGS="-mcpu=cortex-a35 -mtune=cortex-a35 -mfpu=vfpv4"
   SQUASH_NAME=mono-$(VERSION)-aarch64.squashfs
 else
-  echo ERROR:: Unknown platform, exiting...
+  echo ERROR:: Unknown platform \"$ARG_PLATFORM\", exiting...
   exit 1
 fi
 
