@@ -22,11 +22,9 @@ fi
 # Set env config
 export QEMU_CPU=cortex-a35
 export QEMU_LD_PREFIX="/usr/${TRIPLET}"
-export CC="${TRIPLET}-gcc"
-export CXX="${TRIPLET}-g++"
 
 # Configure
-./autogen.sh --host=${TRIPLET} --prefix="$(pwd)/built" --with-tls=__thread --with-profile4_x=yes --with-runtime-preset=net_4_x,aot --with-csc=mcs --with-mcs-docs=no --with-ikvm-native=no --enable-system-aot
+./configure --prefix=$(pwd)/built --host=${TRIPLET} CFLAGS="-I./libatomic_ops/src" --disable-btls --with-mcs-docs=no --with-ikvm-native=no
 
 # Make && Make Install
 make -j$((`nproc`+1))
