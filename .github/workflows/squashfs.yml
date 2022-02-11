@@ -12,21 +12,25 @@ jobs:
           - armhf
           - aarch64
     steps:
+    -
+      name: Install dependencies
+      run: |
+        dpkg --add-architecture armhf
+        dpkg --add-architecture arm64
+        sudo apt update || true
+        sudo apt install qemu binfmt-support qemu-user-static crossbuild-essential-arm64 \
+                         crossbuild-essential-armhf git autoconf libtool automake build-essential \
+                         gettext cmake python3 curl squashfs-tools mono-complete libsdl2-2.0-dev:armhf \
+                         libsdl2-2.0-dev:arm64
     - 
       uses: actions/checkout@v2
       with:
         fetch-depth: 1
         submodules: recursive
-        
-    - name: Set outputs
+    - 
+      name: Set outputs
       id: vars
       run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
-    -
-      name: Install dependencies
-      run: |
-        sudo apt update || true
-        sudo apt install qemu binfmt-support qemu-user-static crossbuild-essential-arm64 crossbuild-essential-armhf
-        sudo apt-get install git autoconf libtool automake build-essential gettext cmake python3 curl squashfs-tools mono-complete
     - 
       name: Build Setup
       run: |
