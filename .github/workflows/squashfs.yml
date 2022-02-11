@@ -25,7 +25,7 @@ jobs:
         sudo dpkg --add-architecture armhf
         sudo dpkg --add-architecture arm64
         sudo apt update || true
-        sudo apt install qemu binfmt-support qemu-user-static libc6:armhf libc6:arm64
+        sudo apt install qemu binfmt-support qemu-user-static libc6-dev-armhf libc6-dev-arm64
         sudo apt-get install git autoconf libtool automake build-essential gettext cmake python3 curl squashfs-tools mono-complete crossbuild-essential-arm64 crossbuild-essential-armhf
     - 
       name: Build Setup
