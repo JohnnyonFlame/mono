@@ -15,6 +15,16 @@ jobs:
     -
       name: Install dependencies
       run: |
+        echo "deb http://us.archive.ubuntu.com/ubuntu/ bionic main restricted universe multiverse" | sudo tee /etc/apt/sources.list
+        echo "deb-src http://us.archive.ubuntu.com/ubuntu/ bionic main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list
+        echo "deb http://us.archive.ubuntu.com/ubuntu/ bionic-security main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list
+        echo "deb http://us.archive.ubuntu.com/ubuntu/ bionic-updates main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list
+        echo "deb http://us.archive.ubuntu.com/ubuntu/ bionic-proposed main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list
+        echo "deb http://us.archive.ubuntu.com/ubuntu/ bionic-backports main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list
+        echo "deb-src http://us.archive.ubuntu.com/ubuntu/ bionic-security main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list
+        echo "deb-src http://us.archive.ubuntu.com/ubuntu/ bionic-updates main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list
+        echo "deb-src http://us.archive.ubuntu.com/ubuntu/ bionic-proposed main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list
+        echo "deb-src http://us.archive.ubuntu.com/ubuntu/ bionic-backports main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list
         sudo dpkg --add-architecture armhf
         sudo dpkg --add-architecture arm64
         sudo apt update || true
