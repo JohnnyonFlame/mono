@@ -20,8 +20,8 @@ jobs:
     -
       name: Install dependencies
       run: |
-        deb https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu bionic main 
-        deb-src https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu bionic main 
+        echo "deb https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
+        echo "deb-src https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
         sudo dpkg --add-architecture armhf
         sudo dpkg --add-architecture arm64
         sudo apt update
