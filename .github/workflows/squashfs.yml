@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy: 
       matrix:
         platforms: 
@@ -20,8 +20,8 @@ jobs:
     -
       name: Install dependencies
       run: |
-        echo "deb https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-        echo "deb-src https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
+        echo "deb https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
+        echo "deb-src https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
         sudo apt update || true
         sudo apt install qemu binfmt-support qemu-user-static crossbuild-essential-arm64 crossbuild-essential-armhf
         sudo apt-get install git autoconf libtool automake build-essential gettext cmake python3 curl squashfs-tools mono-complete
