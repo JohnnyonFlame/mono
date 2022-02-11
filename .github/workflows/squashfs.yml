@@ -30,7 +30,7 @@ jobs:
     - 
       name: Build Setup
       run: |
-        /bin/bash build_workflow.sh ${{ matrix.platforms }}
+        /bin/bash -e build_workflow.sh ${{ matrix.platforms }}
     - 
       name: Archive production artifacts
       uses: actions/upload-artifact@v2
