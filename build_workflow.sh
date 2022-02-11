@@ -21,8 +21,9 @@ else
   exit 1
 fi
 
-# Install deps
-sudo apt-get install git autoconf libtool automake build-essential gettext cmake python3 curl squashfs-tools
+# Install deps and check binfmt
+sudo apt-get install git autoconf libtool automake build-essential gettext cmake python3 curl squashfs-tools qemu binfmt-support qemu-user-static
+update-binfmts --display
 
 # Configure
 ./autogen.sh --prefix="$(pwd)/built" --with-csc=mcs --with-mcs-build --enable-system-aot CFLAGS="${FLAGS}" CXXFLAGS="${FLAGS}" CCFLAGS="${FLAGS}" CC="${TRIPLET}gcc" CXX="${TRIPLET}g++"
