@@ -24,9 +24,11 @@ jobs:
       run: |
         echo "deb https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
         echo "deb-src https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
+        sudo dpkg --add-architecture arm64
+        sudo dpkg --add-architecture armhf
         sudo apt update || true
         sudo apt install qemu binfmt-support qemu-user-static crossbuild-essential-arm64 crossbuild-essential-armhf
-        sudo apt-get install git autoconf libtool automake build-essential gettext cmake python3 curl squashfs-tools mono-complete
+        sudo apt-get install git autoconf libtool automake build-essential gettext cmake python3 curl squashfs-tools mono-complete libc6:armhf libstdc++6:armhf libstdc++6:arm64 libc6:arm64
     - 
       name: Build Setup
       run: |
