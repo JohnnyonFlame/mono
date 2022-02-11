@@ -20,6 +20,7 @@ else
 fi
 
 # Configure
+CC=${TRIPLET}-gcc CXX=${TRIPLET}-g++ \
 ./autogen.sh --host="${TRIPLET}" --prefix="$(pwd)/built" --with-csc=mcs --with-mcs-build --enable-system-aot CFLAGS="${FLAGS}" CXXFLAGS="${FLAGS}" CCFLAGS="${FLAGS}"
 
 # Make && Make Install
