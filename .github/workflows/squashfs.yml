@@ -15,15 +15,15 @@ jobs:
     - 
       uses: actions/checkout@v2
       with:
-        fetch-depth: 2
+        fetch-depth: 1
+        submodules: recursive
+        
     - name: Set outputs
       id: vars
       run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
     -
       name: Install dependencies
       run: |
-        echo "deb https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
-        echo "deb-src https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
         sudo apt update || true
         sudo apt install qemu binfmt-support qemu-user-static crossbuild-essential-arm64 crossbuild-essential-armhf
         sudo apt-get install git autoconf libtool automake build-essential gettext cmake python3 curl squashfs-tools mono-complete
