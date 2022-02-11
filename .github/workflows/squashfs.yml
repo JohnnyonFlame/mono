@@ -27,4 +27,4 @@ jobs:
     - 
       name: Build Setup
       run: |
-        /bin/bash build_workflow.sh ${{ matrix.platform }}
+        /bin/bash build_workflow.sh ${{ matrix.platforms }}
