@@ -19,6 +19,12 @@ jobs:
         echo "deb-src http://ports.ubuntu.com/ubuntu-ports/ focal main universe restricted multiverse"         | sudo tee -a /etc/apt/sources.list 
         echo "deb http://ports.ubuntu.com/ubuntu-ports/ focal-updates main universe restricted multiverse"     | sudo tee -a /etc/apt/sources.list 
         echo "deb-src http://ports.ubuntu.com/ubuntu-ports/ focal-updates main universe restricted multiverse" | sudo tee -a /etc/apt/sources.list 
+        echo "deb http://ports.ubuntu.com/ubuntu-ports/ focal-updates main"                                    | sudo tee -a /etc/apt/sources.list 
+        echo "deb-src http://ports.ubuntu.com/ubuntu-ports/ focal-updates main"                                | sudo tee -a /etc/apt/sources.list 
+        echo "deb http://ports.ubuntu.com/ubuntu-ports/ focal-updates universe"                                | sudo tee -a /etc/apt/sources.list 
+        echo "deb-src http://ports.ubuntu.com/ubuntu-ports/ focal-updates universe"                            | sudo tee -a /etc/apt/sources.list 
+        echo "deb http://ports.ubuntu.com/ubuntu-ports/ focal-updates main universe"                           | sudo tee -a /etc/apt/sources.list 
+        echo "deb-src http://ports.ubuntu.com/ubuntu-ports/ focal-updates main universe"                       | sudo tee -a /etc/apt/sources.list 
         sudo dpkg --add-architecture armhf
         sudo dpkg --add-architecture arm64
         sudo apt update || true
