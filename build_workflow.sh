@@ -19,9 +19,13 @@ else
   exit 1
 fi
 
+# Set env config
+export QEMU_LD_PREFIX="/usr/${TRIPLET}"
+export CC="${TRIPLET}-gcc"
+export CXX="${TRIPLET}-g++"
+
 # Configure
-CC=${TRIPLET}-gcc CXX=${TRIPLET}-g++ \
-./autogen.sh --prefix="$(pwd)/built" --with-csc=mcs --with-mcs-build --enable-system-aot CFLAGS="${FLAGS}" CXXFLAGS="${FLAGS}" CCFLAGS="${FLAGS}"
+./autogen.sh --prefix="$(pwd)/built" --with-csc=mcs --with-mcs-build --enable-system-aot CFLAGS="${FLAGS}" CXXFLAGS="${FLAGS}" CCFLAGS="${FLAGS}" CC="${TRIPLET}-gcc" CXX="${TRIPLET}-g++"
 
 # Make && Make Install
 make -j$((`nproc`+1))
