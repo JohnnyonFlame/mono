@@ -12,8 +12,8 @@ jobs:
     strategy: 
       matrix:
         platforms: 
-          - linux/arm/v7
-          - linux/arm64
+          - armhf
+          - aarch64
     steps:
     - 
       uses: actions/checkout@v2
@@ -33,6 +33,5 @@ jobs:
       name: Archive production artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: dist-without-markdown
-        path: |
-          built/*.squashfs
+        name: mono-${GITHUB_SHA::8}-${{ matrix.platforms }}
+        path: built/mono-${GITHUB_SHA::8}-${{ matrix.platforms }}.squashfs
