@@ -12,7 +12,7 @@ if [[ x$ARG_PLATFORM == x"linux/arm/v7" ]]; then
 elif [[ x$ARG_PLATFORM == x"linux/arm64" ]]; then
   TRIPLET=aarch64-linux-gnu
   # CMAKE_TOOLCHAIN_FILE=aarch64.cmake
-  FLAGS="-mcpu=cortex-a35 -mtune=cortex-a35 -mfpu=vfpv4"
+  FLAGS="-mcpu=cortex-a35 -mtune=cortex-a35"
   SQUASH_NAME=mono-${VERSION}-aarch64.squashfs
 else
   echo ERROR: Unknown platform ${ARG_PLATFORM}, exiting...
