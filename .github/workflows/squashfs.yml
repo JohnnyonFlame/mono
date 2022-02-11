@@ -20,8 +20,8 @@ jobs:
         sudo apt update || true
         sudo apt install -yy qemu binfmt-support qemu-user-static crossbuild-essential-arm64 \
                          crossbuild-essential-armhf git autoconf libtool automake build-essential \
-                         gettext cmake python3 curl squashfs-tools mono-complete libsdl2-2.0-dev:armhf \
-                         libsdl2-2.0-dev:arm64
+                         gettext cmake python3 curl squashfs-tools mono-complete libsdl2-dev:armhf \
+                         libsdl2-dev:arm64
     - 
       uses: actions/checkout@v2
       with:
