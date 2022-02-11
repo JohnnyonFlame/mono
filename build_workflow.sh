@@ -30,6 +30,7 @@ export CXX="${TRIPLET}-g++"
 
 # Make && Make Install
 make -j$((`nproc`+1))
+make -C mcs
 make install
 
 # TODO:: AOT...
