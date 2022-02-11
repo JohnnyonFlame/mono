@@ -25,7 +25,7 @@ export CC="${TRIPLET}-gcc"
 export CXX="${TRIPLET}-g++"
 
 # Configure
-./autogen.sh --prefix="$(pwd)/built" --with-csc=mcs --with-mcs-build --enable-system-aot CFLAGS="${FLAGS}" CXXFLAGS="${FLAGS}" CCFLAGS="${FLAGS}" CC="${TRIPLET}-gcc" CXX="${TRIPLET}-g++"
+./autogen.sh --prefix="$(pwd)/built" --with-tls=__thread --with-profile4_x=yes --with-runtime-preset=net_4_x,aot --with-csc=mcs --enable-mcs-build --enable-system-aot CFLAGS="${FLAGS}" CXXFLAGS="${FLAGS}" CCFLAGS="${FLAGS}" CC="${TRIPLET}-gcc" CXX="${TRIPLET}-g++"
 
 # Make && Make Install
 make -j$((`nproc`+1))
@@ -34,4 +34,4 @@ make install
 # TODO:: AOT...
 # Package
 cd built
-mksquashfs {bin,etc,include,lib,share} "${SQUASH_NAME}"
+mksquashfs * "${SQUASH_NAME}"
