@@ -23,6 +23,10 @@ fi
 
 # Install deps and check binfmt
 sudo apt-get install git autoconf libtool automake build-essential gettext cmake python3 curl squashfs-tools qemu binfmt-support qemu-user-static mono-complete
+if [[ ! -z "${CROSSESSENTIALS}"]; then
+  sudo apt-get install "${CROSSESSENTIALS}"
+fi
+
 update-binfmts --display
 
 # Configure
