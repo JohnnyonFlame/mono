@@ -22,11 +22,9 @@ jobs:
       run: |
         echo "deb https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
         echo "deb-src https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu bionic main" | sudo tee -a /etc/apt/sources.list
-        sudo dpkg --add-architecture armhf
-        sudo dpkg --add-architecture arm64
         sudo apt update || true
-        sudo apt install qemu binfmt-support qemu-user-static libc6-dev-armhf libc6-dev-arm64
-        sudo apt-get install git autoconf libtool automake build-essential gettext cmake python3 curl squashfs-tools mono-complete crossbuild-essential-arm64 crossbuild-essential-armhf
+        sudo apt install qemu binfmt-support qemu-user-static crossbuild-essential-arm64 crossbuild-essential-armhf
+        sudo apt-get install git autoconf libtool automake build-essential gettext cmake python3 curl squashfs-tools mono-complete
     - 
       name: Build Setup
       run: |
